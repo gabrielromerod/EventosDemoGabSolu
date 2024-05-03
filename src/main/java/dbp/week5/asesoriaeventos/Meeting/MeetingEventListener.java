@@ -23,6 +23,6 @@ public class MeetingEventListener {
         User user = event.getUser();
         JsonNode data = event.getResponseBody();
         meetingService.createMeetingAsync(user, data.get("meetingId").asText(), data.get("startDate").asText(), data.get("endDate").asText(), data.get("roomUrl").asText(), data.get("hostRoomUrl").asText());
-        emailService.sendEmail(user.getEmail(), "Meeting", "Hola " + user.getName() + ", tienes una reunión programada.");
+        emailService.sendEmail(user.getEmail(), "Meeting", "Hola " + user.getName() + ", tienes una reunión programada. El enlace a la sala es: " + data.get("roomUrl").asText());
     }
 }

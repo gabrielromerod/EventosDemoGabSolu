@@ -15,6 +15,6 @@ public class MeetingEmailListener {
     @EventListener
     @Async
     public void sendMeetingEmail(MeetingEmailEvent meetingEmailEvent) {
-        emailService.sendEmail(meetingEmailEvent.getEmail(), "Meeting", "Hola " + meetingEmailEvent.getName() + ", tienes una reunión programada.");
+        emailService.sendEmail(meetingEmailEvent.getEmail(), "Meeting", "Hola " + meetingEmailEvent.getName() + ", tienes una reunión programada. El enlace a la sala es: " + meetingEmailEvent.getRoomUrl());
     }
 }

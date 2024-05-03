@@ -6,10 +6,13 @@ public class MeetingEmailEvent extends ApplicationEvent {
     private String email;
     private String name;
 
-    public MeetingEmailEvent(Object source, String email, String name) {
+    private String roomUrl;
+
+    public MeetingEmailEvent(Object source, String email, String name, String roomUrl) {
         super(source);
         this.email = email;
         this.name = name;
+        this.roomUrl = roomUrl;
     }
 
     public String getEmail() {
@@ -18,5 +21,9 @@ public class MeetingEmailEvent extends ApplicationEvent {
 
     public String getName() {
         return name;
+    }
+
+    public String getRoomUrl() {
+        return roomUrl;
     }
 }
